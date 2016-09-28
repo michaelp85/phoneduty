@@ -110,7 +110,6 @@ if (!headers_sent()) {
     header('Content-type: text/xml');
 }
 
-print_r($twilio);
 echo $twilio;
 
 ?>
