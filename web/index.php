@@ -53,7 +53,7 @@ $twilio = new Services_Twilio_Twiml();
 $attributes = array(
     'voice' => 'alice',
     'language' => $language,
-    'callerId' => $callerId;
+    'callerId' => $callerId
 );
 
 if (isset($_POST['Digits'])) {
