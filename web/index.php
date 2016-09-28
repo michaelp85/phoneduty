@@ -50,8 +50,7 @@ $twilio = new Services_Twilio_Twiml();
 
 $attributes = array(
     'voice' => 'alice',
-    'language' => $language,
-    'callerId' => $callerId
+    'language' => $language
 );
 
 if (isset($_POST['Digits'])) {
@@ -86,7 +85,12 @@ if (!isset($_SESSION['end_user_confirmed_call']) and strtolower($validate_human)
             "%s Please hold while we connect you.",
             $user['first_name'], $time), $attributes);
 
-        $dialvars = array('action' => "check_if_completed_by_human.php", 'timeout' => 25);
+        $dialvars = array(
+            'action' => "check_if_completed_by_human.php", 
+            'timeout' => 25,
+            'callerId' => $callerId
+        );
+        
         if (strtolower($record) != 'false') {
             if (strtolower($record) == 'true') {
                 $dialvars['record'] = "true";
