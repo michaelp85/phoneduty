@@ -32,6 +32,9 @@ $language        = getenv('TWILIO_LANGUAGE');
 // https://www.twilio.com/docs/api/twiml/dial#attributes-record
 $record          = getenv('TWILIO_RECORD');
 
+// The outbound caller ID that Twilio should send to the on-call engineer
+$callerId        = getenv('OUTBOUND_CALLERID');
+
 if (isset($_POST['CallSid'])) {
     session_id($_POST['CallSid']);
 }
@@ -47,7 +50,8 @@ $twilio = new Services_Twilio_Twiml();
 
 $attributes = array(
     'voice' => 'alice',
-    'language' => $language
+    'language' => $language,
+    'callerId' => $callerId;
 );
 
 if (isset($_POST['Digits'])) {
