@@ -11,6 +11,8 @@
  *
  */
 
+echo 'Test';
+
 require __DIR__ . '/../vendor/autoload.php';
 
 // Set these Heroku config variables
@@ -107,5 +109,6 @@ if (!headers_sent()) {
 }
 
 echo $twilio;
+print_r($twilio);
 
 ?>
